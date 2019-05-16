@@ -233,6 +233,14 @@ func (b *Builder) Select(cols ...string) *Builder {
 	return b
 }
 
+func (b *Builder) HasSelect() bool {
+	if len(b.selects) > 0{
+		return true
+	}else{
+		return false
+	}
+}
+
 // And sets AND condition
 func (b *Builder) And(cond Cond) *Builder {
 	b.cond = And(b.cond, cond)
